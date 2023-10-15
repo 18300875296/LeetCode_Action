@@ -2,7 +2,7 @@
  * @Author: 18300875296 1453622610@qq.com
  * @Date: 2023-10-15 12:10:35
  * @LastEditors: 18300875296 1453622610@qq.com
- * @LastEditTime: 2023-10-15 13:53:48
+ * @LastEditTime: 2023-10-15 16:04:41
  * @FilePath: \Testc:\Users\1\Desktop\LeetCode-Action\src\index.ts
  * @Description: 
  * 
@@ -20,14 +20,14 @@ async function main(): Promise<void> {
   // 读取参数: 用户 ID
   const USER_ID = core.getInput('user_id')
   // 读取参数: 平台 PLAT_FORM
-  const PLAT_FORM = (core.getInput('platform'))
+  const PLAT_FORM = (core.getInput('platform')) as string
   if (!SUPPORT_PLAT_FORM.includes(PLAT_FORM))
     return core.setFailed(`平台: ${PLAT_FORM}暂不支持,请提issue`)
   try {
     core.info('1.获取页面数据...')
-    const commonPosts =  getData({
+    const commonPosts =  await getData({
       user_id: USER_ID,
-      plat_form: PLAT_FORM,
+      platform: PLAT_FORM,
     })??[]
 
     core.info('2. 生成 html中...')
