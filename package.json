@@ -1,6 +1,6 @@
 {
   "name": "leetcode-action",
-  "type": "module",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "Render LeetCode in readme",
   "main": "lib/index.js",
