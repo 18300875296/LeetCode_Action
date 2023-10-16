@@ -8,8 +8,8 @@ inputs:
     description: 用户 ID
     required: true
     default: ''
-  platform:
-    description: 平台,LeetCode
+  displayType:
+    description: 显示的数据类型
     required: true
     default: ''
 
