@@ -2,7 +2,7 @@
  * @Author: 18300875296 1453622610@qq.com
  * @Date: 2023-10-15 12:10:35
  * @LastEditors: 18300875296 1453622610@qq.com
- * @LastEditTime: 2023-10-15 16:04:41
+ * @LastEditTime: 2023-10-16 15:14:07
  * @FilePath: \Testc:\Users\1\Desktop\LeetCode-Action\src\index.ts
  * @Description: 
  * 
@@ -11,7 +11,7 @@
 
 import { getData } from "./main";
 import { getTimeDiffString } from "./time";
-import core from '@actions/core'
+import * as core from '@actions/core';
 import * as fs from 'fs';
 const SUPPORT_PLAT_FORM = [
   'LeetCode'
