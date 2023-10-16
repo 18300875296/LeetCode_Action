@@ -14,10 +14,13 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "axios": "^1.5.1",
-    "pnpm": "^8.9.0"
+    "pnpm": "^8.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
     "typescript": "^5.2.2"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
