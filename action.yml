@@ -30,4 +30,4 @@ jobs:
         
 runs:
   using: node16
-  main: lib/index.cjs
+  main: lib/index.js
