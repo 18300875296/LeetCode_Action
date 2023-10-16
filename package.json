@@ -18,6 +18,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
+<<<<<<< HEAD
     "typescript": "^5.2.2"
+=======
+     "typescript": "^5.2.2"
+>>>>>>> 2e78f46a6d8d038e3134fe7234d2f46c050e2692
   }
 }

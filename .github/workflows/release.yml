@@ -18,6 +18,11 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
+<<<<<<< HEAD
+=======
+        with:
+          version: 'latest'
+>>>>>>> 2e78f46a6d8d038e3134fe7234d2f46c050e2692
 
       - name: Set node
         uses: actions/setup-node@v3
@@ -30,4 +35,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+<<<<<<< HEAD
     
+=======
+    
+>>>>>>> 2e78f46a6d8d038e3134fe7234d2f46c050e2692

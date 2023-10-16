@@ -17,6 +17,17 @@ inputs:
 # outputs:
 #   time: # output will be available to future steps
 #     description: 'The message to output'
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Install Dependencies
+        run: npm install  # You might need yarn install if you use yarn
+        
 runs:
   using: node16
   main: lib/index.js
