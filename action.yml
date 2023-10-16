@@ -22,6 +22,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+        - name: Clear cache
+        run: |
+          git clean -ffdx
+          rm -rf $GITHUB_WORKSPACE
+
       - name: Checkout
         uses: actions/checkout@v3
         
