@@ -5,9 +5,7 @@
   "description": "Render LeetCode in readme",
   "main": "lib/index.js",
   "scripts": {
-    "run-res": "pnpm run build && node lib/index.js",
-    "watch": "ncc build src/index.ts --watch",
-    "build": "ncc build src/index.ts --out lib"
+    "build": "tsc -p tsconfig.json"
   },
   "author": "https://github.com/18300875296",
   "license": "ISC",
