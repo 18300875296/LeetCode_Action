@@ -2,17 +2,28 @@
  * @Author: 18300875296 1453622610@qq.com
  * @Date: 2023-10-15 12:11:17
  * @LastEditors: 18300875296 1453622610@qq.com
- * @LastEditTime: 2023-10-15 16:03:49
+ * @LastEditTime: 2023-10-16 20:21:21
  * @FilePath: \Testc:\Users\1\Desktop\LeetCode-Action\src\main.ts
  * @Description: 
  * 
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
  */
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
-interface QuestionType {
+type RequestType = {
+  data:{
+    recentACSubmissions:SubmissionType[]
+  }
+}
+type DisplayType = 'SolvedProblem'
+
+
+type SubmissionType ={
+  question:QuestionType,
   submissionId: number;
-  submitTime: string;
+  submitTime: number;
+}
+interface QuestionType {
   question: {
     title: string;
     translatedTitle: string;
@@ -21,13 +32,9 @@ interface QuestionType {
   };
 }
 
-interface SubmissionType {
-  question: {
-    title: string;
-  };
-}
 
-const getRecentQuestions = async (userSlug: string): Promise<string[]> => {
+
+const getSolvedQuestions = async (userSlug: string|number): Promise<SubmissionType[]> => {
   const requestData = {
     query: `
       query recentAcSubmissions($userSlug: String!) {
@@ -48,9 +55,8 @@ const getRecentQuestions = async (userSlug: string): Promise<string[]> => {
     },
     operationName: 'recentAcSubmissions',
   };
-
   try {
-    const response = await axios({
+    const response:AxiosResponse<RequestType> = await axios({
       method: 'post', 
       url: 'https://leetcode.cn/graphql/noj-go/', 
       headers: {
@@ -59,9 +65,7 @@ const getRecentQuestions = async (userSlug: string): Promise<string[]> => {
       data: requestData,
     });
 
-    return response.data.data.recentACSubmissions.map(
-      (submission: QuestionType) => submission.question.title
-    );
+    return response.data.data.recentACSubmissions
   } catch (error) {
     throw error;
   }
@@ -69,17 +73,20 @@ const getRecentQuestions = async (userSlug: string): Promise<string[]> => {
 
 const getData = async ({
   user_id,
-  platform,
+  displayType,
 }: {
   user_id: string | number;
-  platform: string;
-}): Promise<string[] | undefined> => {
-  try {
-    return await getRecentQuestions(`${user_id}`);
-  } catch (error) {
-    console.error(error);
-    return undefined;
+  displayType: DisplayType;
+}): Promise<any[] | undefined> => {
+  switch (displayType) {
+    case 'SolvedProblem':
+      return await getSolvedQuestions(user_id) ?? []
+  
+    default:
+      break;
   }
+ 
 };
 
 export {getData}
+export type {DisplayType }
