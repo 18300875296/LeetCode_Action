@@ -1,11 +1,11 @@
 {
   "name": "leetcode-action",
-  "type": "commonjs",
+  "type": "module",
   "version": "1.0.0",
   "description": "Render LeetCode in readme",
   "main": "lib/index.js",
   "scripts": {
-    "build": "ncc build src/index.ts --out lib"
+    "build": "ncc build src/index.ts --minify --out lib"
   },
   "author": "https://github.com/18300875296",
   "license": "ISC",
